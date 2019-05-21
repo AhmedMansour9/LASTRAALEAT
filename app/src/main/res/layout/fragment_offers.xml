@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff7ea"
+    android:id="@+id/Frame_Offer"
+    tools:context=".Fragments.Offers">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#d27520"
+        android:visibility="gone"
+        android:id="@+id/NoResult"
+        android:layout_centerInParent="true"
+        android:text="@string/noresultfound"
+        android:textStyle="bold"
+        android:textSize="@dimen/_18sdp" />
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarrestaurants"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#d27520">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_80sdp"
+                android:text="@string/offers"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_16sdp" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_Restaurants"
+        android:layout_width="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_Restaurants"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</RelativeLayout>

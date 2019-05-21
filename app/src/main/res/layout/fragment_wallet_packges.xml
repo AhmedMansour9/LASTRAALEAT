@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bc_splash"
+    tools:context=".Fragments.WalletPackges">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarrestaurants"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#d27520">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_80sdp"
+                android:text="@string/wallet"
+                android:textColor="#ffffff"
+                android:id="@+id/Name"
+                android:textSize="@dimen/_16sdp"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/_120sdp"-->
+        <!--android:background="#ffffff"-->
+        <!--android:id="@+id/relaa"-->
+        <!--android:layout_marginRight="@dimen/_30sdp"-->
+        <!--android:layout_marginLeft="@dimen/_30sdp"-->
+        <!--android:layout_marginTop="@dimen/_60sdp">-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="@dimen/_22sdp"-->
+            <!--android:text="@string/raleetocin"-->
+            <!--android:textColor="#dd6c1a"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="@dimen/_20sdp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:id="@+id/coin"-->
+            <!--/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="@dimen/_22sdp"-->
+            <!--android:id="@+id/T_MyWalltet"-->
+            <!--android:textColor="#dd6c1a"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="@dimen/_10sdp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:layout_below="@+id/coin"-->
+            <!--/>-->
+
+
+    <!--</RelativeLayout>-->
+    <!--<ImageView-->
+        <!--android:layout_width="@dimen/_100sdp"-->
+        <!--android:layout_height="@dimen/_100sdp"-->
+        <!--android:layout_below="@+id/relaa"-->
+        <!--android:src="@drawable/addpackge"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="@dimen/_20sdp"-->
+        <!--android:id="@+id/img_addpackge"-->
+        <!--/>-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="@dimen/_18sdp"-->
+        <!--android:text="@string/chooseyourpackge"-->
+        <!--android:textColor="#dd6c1a"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="@dimen/_5sdp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:layout_below="@+id/img_addpackge"-->
+        <!--android:id="@+id/addmoney"-->
+        <!--/>-->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_Packges"
+        android:layout_width="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+
+        android:layout_height="@dimen/_300sdp">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_Packges"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

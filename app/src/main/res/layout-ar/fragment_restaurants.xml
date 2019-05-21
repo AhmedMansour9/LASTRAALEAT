@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundhome">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarrestaurants"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#d27520">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_80sdp"
+                android:id="@+id/seafood"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_16sdp" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#d27520"
+        android:visibility="gone"
+        android:id="@+id/NoResult"
+        android:layout_centerInParent="true"
+        android:text="@string/noresultfound"
+        android:textSize="@dimen/_18sdp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/Rela_One"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:id="@+id/linear"
+            android:weightSum="2"
+            android:background="#ffffff"
+            android:layout_height="@dimen/_40sdp">
+            <Button
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="match_parent"
+                android:drawableRight="@drawable/filter"
+                android:background="#ffffff"
+                android:text="@string/filter"
+                android:textColor="#dd6c1a"
+                android:paddingStart="@dimen/_10sdp"
+                android:id="@+id/filter"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/filter"
+                android:drawableRight="@drawable/search"
+                android:padding="@dimen/_10sdp"
+                android:hint="@string/search"
+                android:gravity="center"
+                android:backgroundTint="#fff"
+                android:inputType="text"
+                android:id="@+id/E_Search"
+                android:textColor="#dd6c1a"
+                android:textColorHint="#dd6c1a"
+                />
+
+
+
+        </RelativeLayout>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_Restaurants"
+            android:layout_width="match_parent"
+            android:layout_below="@id/linear"
+            android:layout_height="match_parent">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_Restaurants"
+                android:scrollbars="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:id="@+id/Rela_Two"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:drawableLeft="@drawable/filter"
+            android:paddingEnd="@dimen/_20sdp"
+            android:background="#ffffff"
+            android:text="@string/filterby"
+            android:textAllCaps="false"
+            android:gravity="start|center"
+            android:paddingStart="@dimen/_20sdp"
+            android:id="@+id/filtered"
+            />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:id="@+id/Rela_Accountinfo"
+            android:layout_below="@+id/filtered"
+            android:layout_height="@dimen/_40sdp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:textColor="#d27520"
+                android:text="@string/recomened"
+                />
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/arrow"
+                android:id="@+id/arrow_recomened"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_20sdp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_alignParentBottom="true"
+                android:background="#e4e4e4"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/Rela_Changepass"
+            android:layout_below="@+id/Rela_Accountinfo"
+            android:layout_height="@dimen/_40sdp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:textColor="#d27520"
+                android:text="@string/rating"
+                />
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/arrow"
+                android:id="@+id/arrow_rating"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_20sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_alignParentBottom="true"
+                android:background="#e4e4e4"
+                />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/Rela_Atoz"
+            android:layout_below="@+id/Rela_Changepass"
+            android:layout_height="@dimen/_40sdp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:textColor="#d27520"
+                android:text="@string/atoz"
+                />
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/arrow"
+                android:id="@+id/arrow_atoz"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_20sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_alignParentBottom="true"
+                android:background="#e4e4e4"
+                />
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

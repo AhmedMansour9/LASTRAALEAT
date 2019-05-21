@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#fff"
+    android:paddingBottom="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:id="@+id/rela_one"
+        android:layout_height="wrap_content">
+        <ProgressBar
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:visibility="gone"
+            android:id="@+id/progressBar"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/T_Name"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_toLeftOf="@+id/Image_product"
+            android:maxLines="1"
+            android:textStyle="bold"
+            android:textColor="#7e8c98"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:id="@+id/T_Price"
+            android:maxLength="10"
+            android:layout_below="@+id/T_Name"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_toRightOf="@+id/Image_product"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:textColor="#ff7d1e"
+            android:gravity="center"
+            />
+        <ImageView
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_centerVertical="true"
+            android:id="@+id/Image_product"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            />
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height= "@dimen/_20sdp"
+            android:layout_alignParentLeft="true"
+            android:textAllCaps="false"
+            android:src="@drawable/dele"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:id="@+id/delete"
+            />
+        <RelativeLayout
+            android:layout_width="@dimen/_100sdp"
+            android:layout_below="@+id/T_Price"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/plus"
+                android:gravity="center"
+                android:textSize="@dimen/_17sdp"
+                android:id="@+id/plus"
+                />
+            <TextView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_centerInParent="true"
+                android:textColor="#ff7d1e"
+                android:text="1"
+                android:gravity="center"
+                android:id="@+id/counter"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:background="@drawable/minus"
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/_17sdp"
+                android:id="@+id/minus"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>

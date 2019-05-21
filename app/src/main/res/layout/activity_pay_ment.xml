@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bc_splash"
+    tools:context=".Fragments.Login">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:background="@drawable/bc"
+                />
+
+
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/logo_login"
+                android:id="@+id/img_logo"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/img_logo"
+                android:text="@string/raaleat"
+                android:textColor="#fff"
+                android:id="@+id/T_rallet"
+                />
+
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="15dp"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_below="@+id/T_rallet"
+                card_view:cardCornerRadius="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/login_text_address_input_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_13sdp"
+                        android:layout_marginRight="@dimen/_13sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/address"
+                        android:layout_below="@+id/login_text_phone_input_layout">
+
+
+                        <EditText
+                            android:id="@+id/login_Address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:textColor="#000"
+                            android:maxLines="1"
+                            android:maxLength="80"
+                            android:backgroundTint="#c2c2c2"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/login_text_email_input_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_13sdp"
+                        android:layout_marginRight="@dimen/_13sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/city"
+                        android:layout_below="@+id/login_text_address_input_layout">
+
+
+                        <EditText
+                            android:id="@+id/city"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:inputType="textEmailAddress"
+                            android:textColor="#000"
+                            android:maxLines="1"
+                            android:maxLength="60"
+                            android:backgroundTint="#c2c2c2"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/login_text_password_input_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_13sdp"
+                        android:layout_marginRight="@dimen/_13sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/state"
+                        android:layout_below="@+id/login_text_email_input_layout">
+
+
+                        <EditText
+                            android:id="@+id/state"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:textColor="#000"
+                            android:maxLines="1"
+                            android:maxLength="30"
+                            android:backgroundTint="#c2c2c2"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_below="@+id/login_text_password_input_layout"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_50sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/bc_btnlogin"
+                        android:text="@string/pay"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        android:id="@+id/btn_pay"
+                        />
+
+                    <ProgressBar
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/progressBarRegister"
+                        android:visibility="invisible"
+                        />
+                </RelativeLayout>
+
+
+
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

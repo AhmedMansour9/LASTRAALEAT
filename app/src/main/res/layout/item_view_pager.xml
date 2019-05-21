@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/item_view_pager_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/slierone"
+        />
+
+
+    <TextView
+        android:id="@+id/item_view_pager_text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textAllCaps="true"
+        android:textSize="@dimen/_27sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:id="@+id/item_view_pager_text_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_17sdp"
+        android:textColor="#fff"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_below="@+id/item_view_pager_text_name"
+        android:layout_centerInParent="true"
+        />
+
+
+</RelativeLayout>

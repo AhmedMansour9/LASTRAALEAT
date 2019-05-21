@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#fff7ea"
+    android:layout_height="@dimen/_150sdp">
+
+    <ImageView
+        android:layout_width="@dimen/_100sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/img"
+        android:layout_centerVertical="true"
+        android:layout_height="@dimen/_120sdp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/img"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:id="@+id/Name"
+        android:textColor="#dd6c1a"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:textStyle="bold"
+        />
+    <Button
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:id="@+id/addtoCart"
+        android:text="@string/addtocart"
+        android:textColor="#ffffff"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:textStyle="bold"
+        android:background="@drawable/bc_addtocart"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/_10sdp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Name"
+        android:layout_toRightOf="@+id/img"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textColor="#6f6f6f"
+        android:id="@+id/OfferPrice"
+        android:textStyle="bold"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Name"
+        android:layout_toRightOf="@+id/OfferPrice"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textColor="#6f6f6f"
+        android:id="@+id/Price"
+        android:maxLength="10"
+        android:textStyle="bold"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Price"
+        android:layout_toRightOf="@+id/img"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textColor="#6f6f6f"
+        android:id="@+id/datefrom"
+        android:textStyle="bold"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/datefrom"
+        android:layout_toRightOf="@+id/img"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textColor="#6f6f6f"
+        android:id="@+id/dateto"
+        android:textStyle="bold"
+
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_alignParentBottom="true"
+        android:background="#e4e4e4"
+        />
+
+
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_marginTop="@dimen/_20sdp"
+    android:layout_marginStart="@dimen/_5sdp"
+    android:layout_marginEnd="@dimen/_5sdp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="@dimen/_135sdp"
+        android:layout_height="@dimen/_180sdp"
+        android:background="@drawable/newwallet"
+        android:id="@+id/relative_row">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:background="#fff"
+            android:id="@+id/Rela"
+            android:layout_height="@dimen/_60sdp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_16sdp"
+            android:textColor="#d66b1d"
+            android:text="23423234"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:id="@+id/coin"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14sdp"
+            android:text="100.00"
+            android:textColor="#d66b1d"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:textStyle="bold"
+            android:layout_below="@+id/coin"
+            android:id="@+id/Price"
+            />
+        </RelativeLayout>
+        <Button
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_below="@+id/Rela"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bcpay"
+            android:text="@string/buy"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:id="@+id/Btn_PayCoin"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

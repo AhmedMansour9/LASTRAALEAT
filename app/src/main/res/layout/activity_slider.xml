@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activites.Slider">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_slider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/view_pager_circle_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_alignBottom="@+id/vp_slider"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="@dimen/_10sdp"></me.relex.circleindicator.CircleIndicator>
+        <TextView
+            android:id="@+id/skipp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_17sdp"
+            android:textColor="#dd6c1a"
+            android:text="@string/skip"
+
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_17sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_17sdp"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

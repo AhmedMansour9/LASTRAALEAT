@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bc_splash"
+    tools:context=".Activites.Order_Success">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarrestaurants"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#d27520">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/order"
+                android:textColor="#ffffff"
+                android:id="@+id/Name"
+                android:textSize="@dimen/_16sdp"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_height="match_parent">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@drawable/bc">
+
+            <ImageView
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/logo_login"
+                android:id="@+id/img_logo"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/thanksfororder"
+                android:textColor="#fff"
+                android:textSize="@dimen/_18sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_80sdp"
+                />
+
+        </RelativeLayout>
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="?attr/actionBarSize"
+            app:cardBackgroundColor="@android:color/white"
+            card_view:cardElevation="15dp"
+            android:id="@+id/card"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:layout_centerInParent="true"
+            card_view:cardCornerRadius="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#d27520"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_centerVertical="true"
+                    android:text="ksdajmlkdfjlsdfk"
+                    android:textSize="@dimen/_16sdp"
+                    android:id="@+id/orderid"
+                    />
+
+
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@+id/card"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/bc_btnlogin"
+            android:text="@string/finish"
+            android:id="@+id/Btn_finish"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

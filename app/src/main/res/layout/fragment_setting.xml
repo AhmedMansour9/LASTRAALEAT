@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff7ea"
+    android:id="@+id/Rela_Setting"
+    tools:context=".Fragments.Setting">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarrestaurants"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#d27520">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_80sdp"
+                android:text="@string/setting"
+                android:textColor="#ffffff"
+                android:id="@+id/Name"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="#ffffff"
+        android:id="@+id/Rela_Accountinfo"
+        android:layout_below="@+id/toolbarrestaurants"
+        android:layout_height="@dimen/_30sdp">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_marginStart="@dimen/_20sdp"
+           android:textColor="#d27520"
+           android:text="@string/accountinfo"
+           />
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/arrow"
+            android:id="@+id/arrow_accountinfo"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_20sdp" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="#ffffff"
+        android:id="@+id/Rela_Changepass"
+        android:layout_below="@+id/Rela_Accountinfo"
+        android:layout_height="@dimen/_30sdp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textColor="#d27520"
+            android:text="@string/changepass"
+            />
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/arrow"
+            android:id="@+id/arrow_changepass"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_20sdp" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="#ffffff"
+        android:id="@+id/Rela_language"
+        android:layout_below="@+id/Rela_Changepass"
+        android:layout_height="@dimen/_30sdp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textColor="#d27520"
+            android:text="@string/language"
+            />
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/arrow"
+            android:id="@+id/arrow_language"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_20sdp" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="#ffffff"
+        android:id="@+id/Rela_Logout"
+        android:layout_below="@+id/Rela_language"
+        android:layout_height="@dimen/_30sdp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textColor="#d27520"
+            android:text="@string/logout"
+            />
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/arrow"
+            android:id="@+id/arrow_logout"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_20sdp" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".Fragments.Menus">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarrestaurants"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#d27520">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_80sdp"
+                android:text="@string/seafood"
+                android:textColor="#ffffff"
+                android:id="@+id/Name"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+
+                />
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </android.support.v7.widget.Toolbar>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_Restaurants"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/relative"
+                android:layout_height="@dimen/_150sdp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/img"
+                    android:scaleType="fitXY"
+
+                    />
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_below="@+id/relative"
+                android:id="@+id/relative2"
+                android:layout_height="@dimen/_35sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:src="@drawable/van"
+                    android:id="@+id/van"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toLeftOf="@+id/van"
+                    android:text="60 دقيقة"
+                    android:textColor="#dd6c1a"
+                    android:id="@+id/time"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+
+                    />
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:src="@drawable/mastercard"
+                    android:id="@+id/master"
+                    />
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/master"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:src="@drawable/visa"
+                    android:id="@+id/visa"
+                    />
+            </RelativeLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_Menus"
+                android:background="@drawable/bcrecycle"
+                android:layout_below="@+id/relative2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_MenusDetails"
+                android:scrollbars="vertical"
+                android:layout_below="@+id/recycler_Menus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

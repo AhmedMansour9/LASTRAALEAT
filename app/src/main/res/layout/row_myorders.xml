@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#fff7ea"
+    android:layout_height="@dimen/_220sdp">
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:id="@+id/orderid"
+            android:textColor="#6f6f6f"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:textStyle="bold"
+
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:id="@+id/status"
+        android:textColor="#6f6f6f"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@+id/orderid"
+        android:textStyle="bold"
+
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/status"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textColor="#6f6f6f"
+            android:id="@+id/amount"
+            android:textStyle="bold"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/amount"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="#6f6f6f"
+            android:id="@+id/amountDelivery"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textStyle="bold"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/amountDelivery"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="#6f6f6f"
+            android:id="@+id/totalPrice"
+            android:textStyle="bold"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/totalPrice"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="#6f6f6f"
+            android:id="@+id/date"
+            android:textStyle="bold"
+
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="#6f6f6f"
+        android:id="@+id/time"
+        android:textStyle="bold"
+
+        />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_alignParentBottom="true"
+            android:background="#e4e4e4"
+            />
+
+
+</RelativeLayout>

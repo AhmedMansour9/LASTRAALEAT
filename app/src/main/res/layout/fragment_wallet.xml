@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/Rela_Wallet"
+    tools:context=".Fragments.Wallet">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bcwallet"
+
+
+        />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarrestaurants"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#d27520">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_80sdp"
+                android:text="@string/wallet"
+                android:textColor="#ffffff"
+                android:id="@+id/Name"
+                android:textSize="@dimen/_16sdp"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/toolbarrestaurants"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#fff"
+        android:id="@+id/card"
+        app:cardCornerRadius="@dimen/_10sdp"
+        card_view:cardElevation="8dp"
+        android:layout_marginLeft="@dimen/_30sdp"
+        android:layout_marginRight="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_30sdp">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/img"
+                android:src="@drawable/icon_wallet"
+                />
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="@dimen/_22sdp"
+           android:text="@string/raleetocin"
+           android:textColor="#dd6c1a"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="@dimen/_10sdp"
+           android:layout_below="@+id/img"
+           android:textStyle="bold"
+           android:id="@+id/coin"
+           />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="@dimen/_22sdp"
+           android:textColor="#dd6c1a"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="@dimen/_5sdp"
+           android:layout_marginBottom="@dimen/_10sdp"
+           android:textStyle="bold"
+           android:layout_below="@+id/coin"
+           android:id="@+id/T_MyWalltet"
+           />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_18sdp"
+        android:text="@string/savemoney"
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:textStyle="bold"
+        android:layout_below="@+id/card"
+        android:id="@+id/savemoney"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/savemoney"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#fff"
+        android:id="@+id/card_newcoins"
+        app:cardCornerRadius="@dimen/_10sdp"
+        card_view:cardElevation="8dp"
+        android:layout_marginTop="@dimen/_30sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/img_newcoins"
+                android:src="@drawable/newcoins"
+                android:layout_marginTop="@dimen/_10sdp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15sdp"
+                android:text="@string/newcoins"
+                android:textColor="#dd6c1a"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_below="@+id/img_newcoins"
+                android:textStyle="bold"
+                android:id="@+id/newcoins"
+                android:layout_marginBottom="@dimen/_10sdp"
+                />
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#fff"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/card_acceptshare"
+            app:cardCornerRadius="@dimen/_10sdp"
+            card_view:cardElevation="8dp"
+            android:layout_marginTop="@dimen/_30sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/img_acceptshare"
+                    android:src="@drawable/acceptshare"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_15sdp"
+                    android:text="@string/acceptshare"
+                    android:textColor="#dd6c1a"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_below="@+id/img_acceptshare"
+                    android:textStyle="bold"
+                    android:id="@+id/acceptshare"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    />
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#fff"
+            android:layout_below="@+id/card_newcoins"
+            android:id="@+id/card_paywithraaleat"
+            android:layout_marginBottom="@dimen/_15sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            card_view:cardElevation="8dp"
+            android:layout_marginTop="@dimen/_30sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/img_paywithraaleat"
+                    android:src="@drawable/paywithraaleat"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_15sdp"
+                    android:text="@string/paywithraaleat"
+                    android:textColor="#dd6c1a"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_below="@+id/img_paywithraaleat"
+                    android:textStyle="bold"
+                    android:id="@+id/paywithraaleat"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    />
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#fff"
+            android:layout_below="@+id/card_newcoins"
+            android:id="@+id/card_shareiwthfriend"
+            android:layout_marginBottom="@dimen/_15sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            card_view:cardElevation="8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_30sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/img_sharewithfriend"
+                    android:src="@drawable/sharewithfriend"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_14sdp"
+                    android:gravity="center"
+                    android:text="@string/sharewithfriend"
+                    android:textColor="#dd6c1a"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_below="@+id/img_sharewithfriend"
+                    android:textStyle="bold"
+                    android:id="@+id/sharewithfriend"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    />
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
+    <!--<ImageView-->
+        <!--android:layout_width="@dimen/_80sdp"-->
+        <!--android:layout_height="@dimen/_80sdp"-->
+        <!--android:layout_below="@+id/savemoney"-->
+        <!--android:src="@drawable/addpackge"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="@dimen/_20sdp"-->
+       <!--android:id="@+id/img_addpackge"-->
+        <!--/>-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="@dimen/_18sdp"-->
+        <!--android:text="@string/addmoney"-->
+        <!--android:textColor="#dd6c1a"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="@dimen/_5sdp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:layout_below="@+id/img_addpackge"-->
+        <!--android:id="@+id/addmoney"-->
+        <!--/>-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_marginTop="@dimen/_30sdp"-->
+        <!--android:id="@+id/Rela_language"-->
+        <!--android:layout_below="@+id/addmoney"-->
+        <!--android:layout_height="@dimen/_40sdp">-->
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/_1sdp"-->
+            <!--android:background="#e4e4e4"-->
+            <!--/>-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginStart="@dimen/_20sdp"-->
+            <!--android:textColor="#d27520"-->
+            <!--android:text="@string/payforrestaurant"-->
+            <!--/>-->
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/_20sdp"-->
+            <!--android:layout_height="@dimen/_20sdp"-->
+            <!--android:src="@drawable/arrow"-->
+            <!--android:id="@+id/arrow_packages"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_marginEnd="@dimen/_20sdp" />-->
+
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/_1sdp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="#e4e4e4"-->
+            <!--/>-->
+
+
+    <!--</RelativeLayout>-->
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
