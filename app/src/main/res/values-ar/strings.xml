@@ -126,4 +126,6 @@
     <string name="statues">الحالة</string>
     <string name="details">التفاصيل</string>
     <string name="nooffers">لا يوجد عروض</string>
+    <string name="nearestrestaurants">أقرب المطاعم</string>
+    <string name="findrestaurants">البحث عن المطاعم</string>
 </resources>

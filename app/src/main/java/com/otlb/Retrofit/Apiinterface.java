@@ -20,6 +20,7 @@ import com.otlb.Model.RegisterFaceResponse;
 import com.otlb.Model.RegisterResponse;
 import com.otlb.Model.Restaurants_Response;
 import com.otlb.Model.StatesResponse;
+import com.otlb.Model.TokenResponse;
 import com.otlb.Model.TypesFoodResponse;
 import com.otlb.Model.UserLoginResponse;
 
@@ -45,7 +46,6 @@ public interface Apiinterface {
     Call<RegisterFaceResponse> RegisterFace_Book(@QueryMap Map<String,String> queryMab);
     @POST("signupMobileGoogle")
     Call<UserLoginResponse> RegisterGoogle(@QueryMap Map<String,String> queryMab);
-
     @POST("getCity")
     Call<Cities_Response> GetCities(@QueryMap Map<String,String> queryMab);
 
@@ -74,6 +74,11 @@ public interface Apiinterface {
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("auth/myCart")
     Call<CartResponse> ShowCart(@QueryMap Map<String,String> queryMab,@Header("Authorization") String auth);
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @POST("auth/gettoken")
+    Call<TokenResponse> UpDateToken(@QueryMap Map<String,String> queryMab, @Header("Authorization") String auth);
+
 
     @POST("getState")
     Call<StatesResponse> GetStates(@QueryMap Map<String,String> queryMab);
@@ -128,6 +133,10 @@ public interface Apiinterface {
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("auth/payOfRestaurant")
     Call<PayForRestaurant_Response> PayForRestaurant(@QueryMap Map<String, String> queryMab, @Header("Authorization") String auth);
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @POST("auth/checkPhoneShare")
+    Call<PayForRestaurant_Response> ShareGroub(@QueryMap Map<String, String> queryMab, @Header("Authorization") String auth);
 
 
     @Headers({ "Content-Type: application/json;charset=UTF-8"})

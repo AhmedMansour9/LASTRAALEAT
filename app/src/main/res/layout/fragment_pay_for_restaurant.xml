@@ -109,6 +109,7 @@
                         android:layout_marginLeft="@dimen/_13sdp"
                         android:layout_marginRight="@dimen/_13sdp"
                         android:layout_marginTop="@dimen/_10sdp"
+                        android:textColorHint="#e18a31"
                         android:hint="@string/amountofprice">
 
 
@@ -118,7 +119,8 @@
                             android:layout_height="wrap_content"
                             android:paddingRight="@dimen/_10sdp"
                             android:backgroundTint="#c2c2c2"
-                            android:textColor="#000"
+                            android:textColor="#e18a31"
+                            android:textColorHint="#e18a31"
                             android:inputType="number"
                             />
                     </android.support.design.widget.TextInputLayout>
@@ -152,7 +154,7 @@
                         android:spinnerMode="dialog"
                         android:layout_below="@+id/amountofpoing"
                         style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                        app:backgroundTint="#6B6B6B">
+                        app:backgroundTint="#e18a31">
 
 
                     </android.support.v7.widget.AppCompatSpinner>
@@ -163,6 +165,7 @@
                         android:layout_marginLeft="@dimen/_13sdp"
                         android:layout_marginRight="@dimen/_13sdp"
                         android:layout_marginTop="@dimen/_10sdp"
+                        android:textColorHint="#e18a31"
                         android:layout_below="@+id/Type_Spinner"
                         android:hint="@string/phone">
 
@@ -173,10 +176,10 @@
                             android:layout_height="wrap_content"
                             android:paddingRight="@dimen/_10sdp"
                             android:inputType="number"
-                            android:backgroundTint="#c2c2c2"
+                            android:backgroundTint="#e18a31"
                             android:maxLines="1"
                             android:maxLength="10"
-                            android:textColor="#000"
+                            android:textColor="#e18a31"
                             />
                     </android.support.design.widget.TextInputLayout>
                     <ImageView

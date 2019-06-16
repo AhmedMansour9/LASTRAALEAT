@@ -23,7 +23,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.otlb.Model.MenuDetails;
 import com.otlb.Model.Restaurants;
-import com.otlb.R;
+import com.raaleat.R;
 import com.otlb.View.RestaurantDetails_View;
 
 import java.text.DecimalFormat;

@@ -11,21 +11,25 @@
             android:id="@+id/offers"
             android:icon="@drawable/offers"
             android:title="@string/offers" />
-
     <item
-        android:id="@+id/notifications"
-        android:icon="@drawable/notification"
-        android:title="@string/notifications" />
+        android:id="@+id/nearestrestaurants"
+        android:icon="@drawable/offers"
+        android:title="@string/nearestrestaurants" />
 
-    <item
-        android:id="@+id/myorders"
-        android:icon="@drawable/myorders"
-        android:title="@string/myorders" />
+    <!--<item-->
+        <!--android:id="@+id/notifications"-->
+        <!--android:icon="@drawable/notification"-->
+        <!--android:title="@string/notifications" />-->
 
-    <item
-        android:id="@+id/wallet"
-        android:icon="@drawable/wallet"
-        android:title="@string/wallet" />
+    <!--<item-->
+        <!--android:id="@+id/myorders"-->
+        <!--android:icon="@drawable/myorders"-->
+        <!--android:title="@string/myorders" />-->
+
+    <!--<item-->
+        <!--android:id="@+id/wallet"-->
+        <!--android:icon="@drawable/wallet"-->
+        <!--android:title="@string/wallet" />-->
 
     <item
         android:id="@+id/setting"

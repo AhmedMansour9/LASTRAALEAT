@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -32,7 +33,7 @@ import com.otlb.Model.TypesFood;
 import com.otlb.Presenter.GetCities_Presenter;
 import com.otlb.Presenter.GetTypes_Presenter;
 import com.otlb.Presenter.ShowCart_Presenter;
-import com.otlb.R;
+import com.raaleat.R;
 import com.otlb.View.GetCities_View;
 import com.otlb.View.ShowCart_View;
 
@@ -46,7 +47,7 @@ import static com.otlb.Activites.Navigation.toolbar;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Home extends Fragment implements ShowCart_View,GetCities_View {
+public class Home extends Fragment implements ShowCart_View,GetCities_View ,SwipeRefreshLayout.OnRefreshListener{
 
 
     public Home() {
@@ -71,6 +72,7 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
    ImageView Img_Cart;
     SharedPreferences Shared;
     ShowCart_Presenter showCart_presenter;
+    SwipeRefreshLayout mSwipeRefreshLayout;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -79,9 +81,28 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
         Navigation();
         Language();
         init();
-
+        SwipRefresh();
         return view;
     }
+
+    public void SwipRefresh(){
+        mSwipeRefreshLayout =  view.findViewById(R.id.swipe_Restaurants);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mSwipeRefreshLayout.setRefreshing(true);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark);
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                getCities_presenter.GetCities(Lang);
+                getTypes_presenter.GetTypes(Lang);
+
+            }
+        });
+    }
+
 
     public void init() {
         showCart_presenter=new ShowCart_Presenter(getContext(),this);
@@ -95,8 +116,6 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
         Type_Spinner=view.findViewById(R.id.Type_Spinner);
         getCities_presenter=new GetCities_Presenter(getContext(),this);
         getTypes_presenter=new GetTypes_Presenter(getContext(),this);
-        getCities_presenter.GetCities(Lang);
-        getTypes_presenter.GetTypes(Lang);
         Img_Cart=view.findViewById(R.id.Img_Cart);
         list_Cities_Adapter = new SpinnerAdapter(getActivity(),list_Cities);
         list_States_Adapter = new Spinner_States(getActivity(),list_States);
@@ -111,6 +130,7 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
                     bundle.putString("typeid",Type_Id);
                     bundle.putString("stateid",State_Id);
                     bundle.putString("type",TypeName);
+                    bundle.putString("lat",null);
                     detailsHomeProductFragment.setArguments(bundle);
                     getFragmentManager().beginTransaction().replace(R.id.Home_Frame,detailsHomeProductFragment)
                             .addToBackStack(null).commit();
@@ -158,8 +178,9 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
 
     @Override
     public void listCities(List<Cities> list) {
+        mSwipeRefreshLayout.setRefreshing(false);
         list_Cities.clear();
-        list_Cities_Adapter.notifyDataSetChanged();
+//        list_Cities_Adapter.notifyDataSetChanged();
         CityDetails_Spinner car_detail=new CityDetails_Spinner();
         car_detail.setId("0");
         car_detail.setName(view.getResources().getString(R.string.selectcity));
@@ -170,13 +191,14 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
             car_details.setName(String.valueOf(list.get(i).getName()));
             list_Cities.add(car_details);
         }
-        list_Cities_Adapter.notifyDataSetChanged();
+//        list_Cities_Adapter.notifyDataSetChanged();
 
 //        list_Cities_Adapter.setDropDownViewResource( R.layout.textcolorspinner);
         Cities_Spinner.setAdapter(list_Cities_Adapter);
         Cities_Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                list_Cities_Adapter.notifyDataSetChanged();
                 City= Cities_Spinner.getSelectedItem().toString();
 
 
@@ -205,8 +227,9 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
 
     @Override
     public void listStates(List<States> list) {
+        mSwipeRefreshLayout.setRefreshing(false);
         list_States.clear();
-        list_States_Adapter.notifyDataSetChanged();
+//        list_States_Adapter.notifyDataSetChanged();
         CityDetails_Spinner car_detail=new CityDetails_Spinner();
         car_detail.setId("0");
         car_detail.setName(view.getResources().getString(R.string.selectstate));
@@ -217,16 +240,16 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
             car_details.setName(String.valueOf(list.get(i).getName()));
             list_States.add(car_details);
         }
-        list_States_Adapter.notifyDataSetChanged();
+//        list_States_Adapter.notifyDataSetChanged();
 //        list_States_Adapter.setDropDownViewResource( R.layout.textcolorspinner);
         States_Spinner.setAdapter(list_States_Adapter);
         States_Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                State= States_Spinner.getSelectedItem().toString();
+                State= adapterView.getSelectedItem().toString();
 
 
-                if(!City.equals("Select State")&&!City.equals("اختار الحي")) {
+                if(!State.equals("Select State")&&!State.equals("اختار الحي")) {
                     for(i = 0; i<list_States.size(); i++){
                         if(list_States.get(i).getName().equals(State)){
                             State_Id=String.valueOf(list_States.get(i).getId());
@@ -245,8 +268,9 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
 
     @Override
     public void listTypes(List<TypesFood> list) {
+        mSwipeRefreshLayout.setRefreshing(false);
         list_Types.clear();
-        list_Types_Adapter.notifyDataSetChanged();
+//        list_Types_Adapter.notifyDataSetChanged();
         CityDetails_Spinner car_detail=new CityDetails_Spinner();
         car_detail.setId("0");
         car_detail.setName(view.getResources().getString(R.string.selecttype));
@@ -258,7 +282,7 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
             list_Types.add(car_details);
         }
 
-        list_Types_Adapter.notifyDataSetChanged();
+//        list_Types_Adapter.notifyDataSetChanged();
 //        list_Types_Adapter.setDropDownViewResource( R.layout.textcolorspinner);
         Type_Spinner.setAdapter(list_Types_Adapter);
         Type_Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -311,6 +335,23 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
         Navigation.Visablty=false;
     }
 
+//    @Override
+//    public void setMenuVisibility(final boolean visible) {
+//        super.setMenuVisibility(visible);
+//        if (visible) {
+//            mSwipeRefreshLayout.post(new Runnable() {
+//                @Override
+//                public void run() {
+//                    getCities_presenter.GetCities(Lang);
+//                    getTypes_presenter.GetTypes(Lang);
+//
+//                }
+//            });
+//
+//        } else {
+//
+//        }
+//    }
     @Override
     public void ShowCart(List<CartList> list) {
         T_Count.setText(String.valueOf(list.size()));
@@ -328,6 +369,13 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View {
 
     @Override
     public void NoProduct() {
+
+    }
+
+    @Override
+    public void onRefresh() {
+        getCities_presenter.GetCities(Lang);
+        getTypes_presenter.GetTypes(Lang);
 
     }
 }

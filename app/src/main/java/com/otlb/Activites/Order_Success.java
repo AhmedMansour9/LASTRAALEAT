@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.otlb.R;
+import com.raaleat.R;
 
 public class Order_Success extends AppCompatActivity {
 

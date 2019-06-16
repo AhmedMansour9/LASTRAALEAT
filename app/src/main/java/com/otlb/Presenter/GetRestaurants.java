@@ -82,4 +82,35 @@ public class GetRestaurants {
             }
         });
     }
+    public void GetNearestRestaurants(String lang,String lati,String lng) {
+        Map<String, String> queryMap = new HashMap<>();
+        queryMap.put("lang", lang);
+        queryMap.put("lat", lati);
+        queryMap.put("lng", lng);
+
+
+        Apiinterface apiInterface = ApiCLint.getClient().create(Apiinterface.class);
+        Call<Restaurants_Response> call = apiInterface.GetRestaurants(queryMap);
+        call.enqueue(new Callback<Restaurants_Response>() {
+            @Override
+            public void onResponse(Call<Restaurants_Response> call, Response<Restaurants_Response> response) {
+
+                if (response.code()==200) {
+                    getCities_view.listRestaurants(response.body().getData());
+                } else if(response.code()==404){
+                    getCities_view.EmptyResult();
+                }else {
+                    getCities_view.Error();
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<Restaurants_Response> call, Throwable t) {
+                getCities_view.Error();
+
+            }
+        });
+    }
+
 }

@@ -137,4 +137,6 @@
     <string name="statues">Statues</string>
     <string name="details">Details</string>
     <string name="nooffers">Sorry No Offers Available Now</string>
+    <string name="nearestrestaurants">Nearest Restaurants</string>
+    <string name="findrestaurants">FIND RESTAURANTS</string>
 </resources>

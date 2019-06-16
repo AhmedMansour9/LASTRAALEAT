@@ -3,11 +3,11 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.otlb"
+        applicationId "com.raaleat"
         minSdkVersion 17
         targetSdkVersion 28
-        versionCode 7
-        versionName "1.6"
+        versionCode 8
+        versionName "1.7"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -48,6 +48,9 @@ dependencies {
     implementation project(':paytabs_sdk-v3.0.3')
     implementation 'me.relex:circleindicator:1.2.2'
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
 
 
 }
+apply plugin: 'com.google.gms.google-services'

@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import com.otlb.Activites.Navigation;
 import com.otlb.Fragments.Login;
 import com.otlb.MainActivity;
-import com.otlb.R;
+import com.raaleat.R;
 
 import java.util.Locale;
 

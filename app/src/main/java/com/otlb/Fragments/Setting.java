@@ -16,7 +16,7 @@ import android.widget.RelativeLayout;
 
 import com.otlb.Activites.Navigation;
 import com.otlb.MainActivity;
-import com.otlb.R;
+import com.raaleat.R;
 
 import static android.content.Context.MODE_PRIVATE;
 

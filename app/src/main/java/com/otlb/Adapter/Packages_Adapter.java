@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.otlb.Model.Cities;
 import com.otlb.Model.Packages_Details;
 import com.otlb.Model.Restaurants;
-import com.otlb.R;
+import com.raaleat.R;
 import com.otlb.View.PackageId_View;
 import com.otlb.View.RestaurantDetails_View;
 

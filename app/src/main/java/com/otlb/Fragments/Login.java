@@ -49,10 +49,13 @@ import com.otlb.Model.UserRegister;
 import com.otlb.Presenter.LoginPresenter;
 import com.otlb.Presenter.RegisterFace_Presenter;
 import com.otlb.Presenter.Registergoogle;
-import com.otlb.R;
+import com.otlb.Presenter.Tokens_Presenter;
+import com.raaleat.R;
+import com.otlb.SharedPrefManager;
 import com.otlb.View.LoginView;
 import com.otlb.View.RegisterFaceView;
 import com.otlb.View.RegistergoogleView;
+import com.otlb.View.Tokens_View;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,7 +67,7 @@ import static android.content.Context.MODE_PRIVATE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Login extends Fragment implements LoginView, RegisterFaceView, RegistergoogleView {
+public class Login extends Fragment implements LoginView, RegisterFaceView, RegistergoogleView, Tokens_View {
 
 
     public Login() {
@@ -88,8 +91,8 @@ public class Login extends Fragment implements LoginView, RegisterFaceView, Regi
     SharedPreferences.Editor Shared;
     TextView Register;
     SharedPreferences.Editor shareRole;
-//    CheckgbsAndNetwork checknetwork;
     RelativeLayout Relativelogin;
+    Tokens_Presenter tokens_presenter;
     String useer;
     String email;
     String useergoogle;
@@ -330,6 +333,8 @@ public class Login extends Fragment implements LoginView, RegisterFaceView, Regi
         Shared.putString("logggin",a);
         Shared.apply();
         progressBar.setVisibility(View.GONE);
+       String token= SharedPrefManager.getInstance(getContext()).getDeviceToken();
+        tokens_presenter.UpdateToken(token,a);
         Intent inty=new Intent(getContext(), Navigation.class);
         startActivity(inty);
         getActivity().finish();
@@ -341,6 +346,9 @@ public class Login extends Fragment implements LoginView, RegisterFaceView, Regi
         progressBar.setVisibility(View.GONE);
         Shared.putString("logggin",usertoken);
         Shared.apply();
+        String token= SharedPrefManager.getInstance(getContext()).getDeviceToken();
+        tokens_presenter.UpdateToken(token,usertoken);
+
         startActivity(new Intent(getContext(), Navigation.class));
         getActivity().finish();
 
@@ -404,6 +412,7 @@ public class Login extends Fragment implements LoginView, RegisterFaceView, Regi
 //        Relativelogin=view.findViewById(R.id.Relativelogin);
         Shared=getActivity().getSharedPreferences("login",MODE_PRIVATE).edit();
         shareRole=getActivity().getSharedPreferences("Role",MODE_PRIVATE).edit();
+        tokens_presenter=new Tokens_Presenter(getContext(),this);
         google=view.findViewById(R.id.L_google);
         progressBar=view.findViewById(R.id.progrosslogin);
         regist=new RegisterFace_Presenter(getContext(),this);
@@ -412,5 +421,15 @@ public class Login extends Fragment implements LoginView, RegisterFaceView, Regi
 //        mAuth = FirebaseAuth.getInstance();
 //        checknetwork=new CheckgbsAndNetwork(this);
         logiin=new LoginPresenter(getContext(),this);
+    }
+
+    @Override
+    public void success() {
+
+    }
+
+    @Override
+    public void Error() {
+
     }
 }

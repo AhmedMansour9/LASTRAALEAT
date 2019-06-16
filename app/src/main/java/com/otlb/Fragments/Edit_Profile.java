@@ -23,7 +23,7 @@ import com.otlb.Model.Profile;
 import com.otlb.Model.UserRegister;
 import com.otlb.Presenter.Change_Profile_Presenter;
 import com.otlb.Presenter.GetProfile_Presenter;
-import com.otlb.R;
+import com.raaleat.R;
 import com.otlb.TextDrawable;
 import com.otlb.View.Change_Profile_View;
 import com.otlb.View.GetProfile_View;

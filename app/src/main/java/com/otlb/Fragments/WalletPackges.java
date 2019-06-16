@@ -25,7 +25,7 @@ import com.otlb.Language;
 import com.otlb.Model.Packages_Details;
 import com.otlb.Presenter.GetPackages_Presenter;
 import com.otlb.Presenter.GetRestaurants;
-import com.otlb.R;
+import com.raaleat.R;
 import com.otlb.View.GetPackages_View;
 import com.otlb.View.PackageId_View;
 

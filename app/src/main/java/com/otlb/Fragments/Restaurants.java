@@ -27,7 +27,7 @@ import com.otlb.Adapter.Restaurants_Adapter;
 import com.otlb.Language;
 import com.otlb.Model.Offers_Details;
 import com.otlb.Presenter.GetRestaurants;
-import com.otlb.R;
+import com.raaleat.R;
 import com.otlb.View.RestaurantDetails_View;
 import com.otlb.View.Restaurants_View;
 
@@ -53,13 +53,14 @@ public class Restaurants extends Fragment implements RestaurantDetails_View,Rest
     Restaurants_Adapter restaurants_adapter;
     GetRestaurants getUnits_presenter;
     String Typeid,Cityid,Stateid;
-    String Lang,Type;
+    String Lang,Type,lati,lng;
     EditText E_Search;
     RelativeLayout Rela_Recycle,Rela_Filter;
     Button Filter;
     RelativeLayout Img_Rating,Img_AToZ,Img_MinOrder;
     List<com.otlb.Model.Restaurants> restaurantsList=new ArrayList<>();
     TextView NoResult,seafood;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -95,6 +96,8 @@ public class Restaurants extends Fragment implements RestaurantDetails_View,Rest
             Typeid=bundle.getString("typeid");
             Stateid=bundle.getString("stateid");
             Type=bundle.getString("type");
+            lati=bundle.getString("lat");
+            lng=bundle.getString("lng");
             seafood.setText(Type);
         }
     }
@@ -102,6 +105,7 @@ public class Restaurants extends Fragment implements RestaurantDetails_View,Rest
     @Override
     public void onRefresh() {
         mSwipeRefreshLayout.setRefreshing(true);
+
         getUnits_presenter.GetRestaurants(Lang,Stateid,Cityid,Typeid);
     }
 

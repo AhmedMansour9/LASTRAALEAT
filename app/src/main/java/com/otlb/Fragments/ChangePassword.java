@@ -24,8 +24,8 @@ import com.otlb.Activites.Navigation;
 import com.otlb.Model.ChangProfile;
 import com.otlb.Model.UserRegister;
 import com.otlb.Presenter.Change_Profile_Presenter;
-import com.otlb.R;
 import com.otlb.View.Change_Profile_View;
+import com.raaleat.R;
 
 import static android.content.Context.MODE_PRIVATE;
 

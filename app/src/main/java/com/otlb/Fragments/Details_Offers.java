@@ -34,7 +34,7 @@ import com.otlb.Presenter.Details_offer_presenter;
 import com.otlb.Presenter.GetMenuDetails_Presenter;
 import com.otlb.Presenter.GetMenu_Presetner;
 import com.otlb.Presenter.GetRestaurants;
-import com.otlb.R;
+import com.raaleat.R;
 import com.otlb.View.DetailsOffers_View;
 import com.otlb.View.RestaurantDetails_View;
 

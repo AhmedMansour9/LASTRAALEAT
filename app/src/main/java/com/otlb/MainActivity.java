@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.otlb.Activites.Splash;
 import com.otlb.Fragments.Login;
+import com.raaleat.R;
 
 public class MainActivity extends AppCompatActivity {
 

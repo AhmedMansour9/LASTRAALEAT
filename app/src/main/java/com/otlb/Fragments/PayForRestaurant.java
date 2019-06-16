@@ -30,15 +30,18 @@ import com.otlb.Activites.Navigation;
 import com.otlb.Language;
 import com.otlb.Model.Cities;
 import com.otlb.Model.CityDetails_Spinner;
+import com.otlb.Model.SpinnerAdapter;
 import com.otlb.Model.States;
 import com.otlb.Model.TypesFood;
 import com.otlb.Model.UserRegister;
 import com.otlb.Presenter.GetAllRestaurants_Presenter;
 import com.otlb.Presenter.GetCities_Presenter;
 import com.otlb.Presenter.PayForRestaurant_Presenter;
-import com.otlb.R;
+import com.otlb.Presenter.ShareResturant_Presenter;
+import com.raaleat.R;
 import com.otlb.View.GetCities_View;
 import com.otlb.View.Order_View;
+import com.otlb.View.ShareSuccess;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +52,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PayForRestaurant extends Fragment implements Order_View,GetCities_View {
+public class PayForRestaurant extends Fragment implements Order_View,GetCities_View , ShareSuccess {
 
 
     public PayForRestaurant() {
@@ -64,14 +67,16 @@ public class PayForRestaurant extends Fragment implements Order_View,GetCities_V
     GetAllRestaurants_Presenter getCities_presenter;
     Spinner Type_Spinner;
     List<CityDetails_Spinner> list_Cities=new ArrayList<>();
-    ArrayAdapter<CityDetails_Spinner> list_Cities_Adapter;
     String City,City_Id;
     String Lang;
     PayForRestaurant_Presenter payForRestaurant_presenter;
     ProgressBar progressBarRegister;
     String user;
     SharedPreferences Shared;
-
+    SpinnerAdapter list_Cities_Adapter;
+    ShareResturant_Presenter shareResturant_presenter;
+    String y = "";
+    String phones;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -92,21 +97,44 @@ public class PayForRestaurant extends Fragment implements Order_View,GetCities_V
                 progressBarRegister.setVisibility(View.VISIBLE);
                 payForRestaurant_presenter.PayRestaurant(user,City_Id,E_Amount.getText().toString());
             }
-//            View childView = getLayoutInflater().inflate(R.layout.custom_layout, null);
-//             e = childView.findViewById(R.id.custom_email);
-//             LinearLayout linearr=childView.findViewById(R.id.linearr);
-//            ArrayList<String> edittextArray = new ArrayList<String>();
-//            for(int i = 0; i < linearLayout.getChildCount(); i++){
-//                View newLayout = linearLayout.getChildAt(i);
-//                EditText editText =
-//                        newLayout.findViewById(R.id. custom_email);
-//                edittextArray.add(editText.getText().toString());
-//            }
-//             for (int i=0;i<edittextArray.size();i++){
-//                 Toast.makeText(getActivity(), ""+edittextArray.get(i), Toast.LENGTH_SHORT).show();
-//             }
+
         }
     });
+
+        btn_Share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View childView = getLayoutInflater().inflate(R.layout.custom_layout, null);
+                e = childView.findViewById(R.id.custom_email);
+                LinearLayout linearr=childView.findViewById(R.id.linearr);
+                ArrayList<String> edittextArray = new ArrayList<String>();
+                for(int i = 0; i < linearLayout.getChildCount(); i++){
+                    View newLayout = linearLayout.getChildAt(i);
+                    EditText editText =
+                            newLayout.findViewById(R.id. custom_email);
+                    edittextArray.add(editText.getText().toString());
+                }
+                for (int i=0;i<edittextArray.size();i++){
+
+                    int a = edittextArray.size() - 1;
+
+                    if (a == i) {
+                        y = y + edittextArray.get(i);
+                    } else {
+                        y = y + edittextArray.get(i) + " ";
+                    }
+                }
+
+                if (!E_Amount.getText().toString().equals("") && City_Id!=null&&!Phone.getText().toString().equals("")) {
+                        phones=Phone.getText().toString()+" "+y;
+
+                    btn_Pay.setEnabled(false);
+                    progressBarRegister.setVisibility(View.VISIBLE);
+                    shareResturant_presenter.PayRestaurant(user,City_Id,E_Amount.getText().toString(),phones);
+                }
+
+            }
+        });
         return view;
     }
     private void PlusEditText() {
@@ -122,12 +150,14 @@ public class PayForRestaurant extends Fragment implements Order_View,GetCities_V
     }
 
     public void init(){
+        shareResturant_presenter=new ShareResturant_Presenter(getContext(),this);
         Phone=view.findViewById(R.id.login_email);
         btn_Share=view.findViewById(R.id.btn_Share);
         btn_Pay=view.findViewById(R.id.btn_Pay);
         PlusEmail=view.findViewById(R.id.PlusEmail);
         linearLayout=view.findViewById(R.id.child_linear);
         Type_Spinner=view.findViewById(R.id.Type_Spinner);
+        list_Cities_Adapter = new SpinnerAdapter(getActivity(),list_Cities);
         E_Amount=view.findViewById(R.id.E_Amount);
         Shared=getActivity().getSharedPreferences("login",MODE_PRIVATE);
         user=Shared.getString("logggin",null);
@@ -228,15 +258,15 @@ public class PayForRestaurant extends Fragment implements Order_View,GetCities_V
             car_details.setName(String.valueOf(list.get(i).getName()));
             list_Cities.add(car_details);
         }
-        list_Cities_Adapter = new ArrayAdapter<CityDetails_Spinner>(getApplicationContext(), R.layout.textcolorspinner,list_Cities) {
-            @Override
-            public View getDropDownView(int position, View convertView, ViewGroup parent) {
-                TextView textView = (TextView) super.getDropDownView(position, convertView, parent);
-                textView.setTextColor(Color.BLACK);
-                return textView;
-            }
-        };
-        list_Cities_Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        list_Cities_Adapter = new ArrayAdapter<CityDetails_Spinner>(getApplicationContext(), R.layout.textcolorspinner,list_Cities) {
+//            @Override
+//            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+//                TextView textView = (TextView) super.getDropDownView(position, convertView, parent);
+//                textView.setTextColor(Color.BLACK);
+//                return textView;
+//            }
+//        };
+//        list_Cities_Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Type_Spinner.setAdapter(list_Cities_Adapter);
         Type_Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -273,8 +303,16 @@ public class PayForRestaurant extends Fragment implements Order_View,GetCities_V
 
     }
 
+
+    @Override
+    public void SuccessShare() {
+
+    }
+
     @Override
     public void Error(String a) {
+        Toast.makeText(getContext(), ""+a, Toast.LENGTH_SHORT).show();
+        progressBarRegister.setVisibility(View.GONE);
 
     }
     public void Language (){

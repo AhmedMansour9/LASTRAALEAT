@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.otlb.Activites.Navigation;
-import com.otlb.R;
+import com.raaleat.R;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.otlb.Adapter.SliderPagerAdapter;
 import com.otlb.MainActivity;
-import com.otlb.R;
+import com.raaleat.R;
 
 import java.util.ArrayList;
 import java.util.Timer;

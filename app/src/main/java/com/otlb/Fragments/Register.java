@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.fourhcode.forhutils.FUtilsValidation;
 import com.otlb.Model.UserRegister;
 import com.otlb.Presenter.Register_Presenter;
-import com.otlb.R;
+import com.raaleat.R;
 import com.otlb.TextDrawable;
 import com.otlb.View.RegisterView;
 

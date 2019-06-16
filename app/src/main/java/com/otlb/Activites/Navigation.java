@@ -22,11 +22,13 @@ import android.view.Window;
 
 import com.otlb.Fragments.Home;
 import com.otlb.Fragments.MyOrders;
+import com.otlb.Fragments.NearestBranches;
 import com.otlb.Fragments.Notifications;
 import com.otlb.Fragments.Offers;
 import com.otlb.Fragments.Setting;
+import com.otlb.Fragments.TabsLayout;
 import com.otlb.Fragments.Wallet;
-import com.otlb.R;
+import com.raaleat.R;
 
 import java.util.Locale;
 
@@ -99,7 +101,12 @@ public class Navigation extends AppCompatActivity
                 } else if (fr instanceof Notifications) {
                     BackToHome();
 
-                } else if (fr instanceof Wallet) {
+                }
+                else if (fr instanceof NearestBranches) {
+                    BackToHome();
+
+                }
+                else if (fr instanceof Wallet) {
                     BackToHome();
 
                 } else if (fr instanceof Setting) {
@@ -122,33 +129,29 @@ public class Navigation extends AppCompatActivity
             switch (item.getItemId()) {
                 case R.id.home:
                     mCurrentSelectedPosition = 0;
-
-                    fr = new Home();
+                    fr = new TabsLayout();
                     break;
                 case R.id.offers:
                     mCurrentSelectedPosition = 1;
-
                     fr = new Offers();
-
                     break;
-                case R.id.notifications:
+                case R.id.nearestrestaurants:
                     mCurrentSelectedPosition = 2;
 
-                    fr = new Notifications();
+                    fr = new NearestBranches();
                     break;
-
-                case R.id.myorders:
-                    mCurrentSelectedPosition = 3;
-
-                    fr = new MyOrders();
-                    break;
-                case R.id.wallet:
-                    mCurrentSelectedPosition = 4;
-
-                    fr = new Wallet();
-                    break;
+//
+//                case R.id.myorders:
+//                    mCurrentSelectedPosition = 3;
+//                    fr = new MyOrders();
+//                    break;
+//                case R.id.wallet:
+//                    mCurrentSelectedPosition = 4;
+//
+//                    fr = new Wallet();
+//                    break;
                 case R.id.setting:
-                    mCurrentSelectedPosition = 4;
+                    mCurrentSelectedPosition = 3;
 
                     fr = new Setting();
                     break;
@@ -158,7 +161,6 @@ public class Navigation extends AppCompatActivity
 //        Sha.apply();
 //        startActivity(new Intent(this, MainActivity.class));
 //        finish();
-
 
                 default:
                     mCurrentSelectedPosition = 0;
@@ -176,7 +178,6 @@ public class Navigation extends AppCompatActivity
             android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.replace(R.id.flContentss, fr);
             transaction.commit();
-
             DrawerLayout drawer = findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             return true;

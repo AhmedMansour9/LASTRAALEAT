@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import com.otlb.Activites.Navigation;
 import com.otlb.Presenter.MyWallet_Presenter;
-import com.otlb.R;
+import com.raaleat.R;
 import com.otlb.View.MyWallet_View;
 
 import static android.content.Context.MODE_PRIVATE;
