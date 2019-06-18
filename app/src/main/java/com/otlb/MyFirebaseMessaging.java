@@ -11,6 +11,8 @@ import com.otlb.Activites.Navigation;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 public class MyFirebaseMessaging extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgService";
     String title,message,address,time,Day;
@@ -23,7 +25,9 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
         if (remoteMessage.getData().size() > 0) {
             Log.e(TAG, "Data Payload: " + remoteMessage.getData().toString());
             try {
-                JSONObject json = new JSONObject(remoteMessage.getData().toString());
+                Map<String, String> params = remoteMessage.getData();
+
+                JSONObject json = new JSONObject(params);
                 sendPushNotification(json);
             } catch (Exception e) {
                 Log.e(TAG, "Exception: " + e.getMessage());
@@ -43,10 +47,10 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 
         Log.e(TAG, "Notification JSON " + json.toString());
         try {
-            JSONObject data = json.getJSONObject("data");
+//            JSONObject data = json.getJSONObject("data");
 
-            title = data.getString("title");
-            message = data.getString("message");
+            title = json.getString("title");
+            message = json.getString("message");
 //            if(address.equals("null")) {
             mNotificationManager.showSmallNotificati(title, message, intent);
 

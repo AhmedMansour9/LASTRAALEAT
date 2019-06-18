@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name="com.otlb.Activites.Slider"></activity>
+        <activity android:name="com.otlb.Activites.SuccessPay_InWallet"></activity>
+        <activity android:name="com.otlb.Activites.Slider" />
         <activity android:name="com.otlb.Activites.PayMent" />
         <activity android:name="com.otlb.Activites.Order_Success" />
         <activity
@@ -57,10 +58,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <service android:name="com.otlb.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
@@ -68,7 +69,17 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCug5zIERzCjvl-Yt8bCWEwHf9lQBHeK-E" />
 
+        <service android:name="com.otlb.MyFirebaseMessaging">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
     </application>
 
 </manifest>

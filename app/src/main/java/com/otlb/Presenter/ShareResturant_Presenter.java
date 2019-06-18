@@ -35,7 +35,7 @@ public class ShareResturant_Presenter {
         queryMap.put("restaurant_id", Restaurantid);
         queryMap.put("amount", amount);
         queryMap.put("phone", phone);
-
+        queryMap.put("deviceType", "android");
         Call<PayForRestaurant_Response> call = apiInterface.ShareGroub(queryMap, "Bearer " + user);
         call.enqueue(new Callback<PayForRestaurant_Response>() {
             @Override

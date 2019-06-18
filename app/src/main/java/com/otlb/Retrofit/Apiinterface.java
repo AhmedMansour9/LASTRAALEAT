@@ -6,7 +6,9 @@ import com.otlb.Model.CartUpdate_Response;
 import com.otlb.Model.ChangePassword_Response;
 import com.otlb.Model.ChangeProfile_Response;
 import com.otlb.Model.Cities_Response;
+import com.otlb.Model.ConFirm_Response;
 import com.otlb.Model.Details_Offers_Response;
+import com.otlb.Model.GetUsersShare_Response;
 import com.otlb.Model.MenuDetails_Response;
 import com.otlb.Model.Menu_Response;
 import com.otlb.Model.MyOrders_Response;
@@ -79,6 +81,10 @@ public interface Apiinterface {
     @POST("auth/gettoken")
     Call<TokenResponse> UpDateToken(@QueryMap Map<String,String> queryMab, @Header("Authorization") String auth);
 
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @POST("auth/getusershare")
+    Call<GetUsersShare_Response> GetUsersShare(@Header("Authorization") String auth);
+
 
     @POST("getState")
     Call<StatesResponse> GetStates(@QueryMap Map<String,String> queryMab);
@@ -133,6 +139,11 @@ public interface Apiinterface {
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("auth/payOfRestaurant")
     Call<PayForRestaurant_Response> PayForRestaurant(@QueryMap Map<String, String> queryMab, @Header("Authorization") String auth);
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @POST("auth/confirm")
+    Call<ConFirm_Response> ConFirm( @Header("Authorization") String auth);
+
 
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("auth/checkPhoneShare")

@@ -15,11 +15,12 @@
             android:backgroundTint="#c2c2c2"
             android:inputType="number"
             android:maxLines="1"
+            android:maxLength="11"
             android:layout_marginLeft="@dimen/_13sdp"
             android:layout_marginRight="@dimen/_13sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:hint="@string/phone"
-            android:textColor="#000"
+            android:textColor="#e18a31"
             />
 
 </LinearLayout>

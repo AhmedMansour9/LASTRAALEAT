@@ -76,7 +76,6 @@ public class Wallet extends Fragment implements MyWallet_View {
                 detailsHomeProductFragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().add(R.id.Rela_Wallet,detailsHomeProductFragment)
                         .addToBackStack(null).commit();
-
             }
         });
 

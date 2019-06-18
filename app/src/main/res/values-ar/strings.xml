@@ -128,4 +128,9 @@
     <string name="nooffers">لا يوجد عروض</string>
     <string name="nearestrestaurants">أقرب المطاعم</string>
     <string name="findrestaurants">البحث عن المطاعم</string>
+    <string name="waitingresponse">في انتظار رد اصدقائك</string>
+    <string name="confirm">تأكيد</string>
+    <string name="thankyouforusingwallet">شكرا لاستخدامك محفظة ريليت</string>
+    <string name="yourpaymentwassuccess">تمت العملية بنجاح</string>
 </resources>
+

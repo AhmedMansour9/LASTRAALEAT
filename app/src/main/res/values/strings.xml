@@ -139,4 +139,15 @@
     <string name="nooffers">Sorry No Offers Available Now</string>
     <string name="nearestrestaurants">Nearest Restaurants</string>
     <string name="findrestaurants">FIND RESTAURANTS</string>
+    <string name="name">Name</string>
+    <string name="money">Money</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Refuse</string>
+    <string name="noreply">No Replay</string>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="waitingresponse">Waiting For Your Friends Response</string>
+    <string name="confirm">ConFirm</string>
+    <string name="thankyouforusingwallet">Thank You For Using Wallet Share</string>
+    <string name="yourpaymentwassuccess">Your PayMent Was Successful</string>
 </resources>

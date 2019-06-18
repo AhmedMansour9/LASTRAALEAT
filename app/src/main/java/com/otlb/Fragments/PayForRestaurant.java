@@ -128,7 +128,7 @@ public class PayForRestaurant extends Fragment implements Order_View,GetCities_V
                 if (!E_Amount.getText().toString().equals("") && City_Id!=null&&!Phone.getText().toString().equals("")) {
                         phones=Phone.getText().toString()+" "+y;
 
-                    btn_Pay.setEnabled(false);
+                    btn_Share.setEnabled(false);
                     progressBarRegister.setVisibility(View.VISIBLE);
                     shareResturant_presenter.PayRestaurant(user,City_Id,E_Amount.getText().toString(),phones);
                 }
@@ -306,14 +306,22 @@ public class PayForRestaurant extends Fragment implements Order_View,GetCities_V
 
     @Override
     public void SuccessShare() {
+        btn_Share.setEnabled(true);
+        Toast.makeText(getContext(), ""+getResources().getString(R.string.waitingresponse), Toast.LENGTH_SHORT).show();
+        WaitingReplies detailsHomeProductFragment=new WaitingReplies();
+        Bundle bundle=new Bundle();
+        detailsHomeProductFragment.setArguments(bundle);
+        getFragmentManager().beginTransaction().add(R.id.Rela_Wallet,detailsHomeProductFragment)
+                .addToBackStack(null).commit();
+
+
 
     }
 
     @Override
     public void Error(String a) {
-        Toast.makeText(getContext(), ""+a, Toast.LENGTH_SHORT).show();
         progressBarRegister.setVisibility(View.GONE);
-
+        btn_Share.setEnabled(true);
     }
     public void Language (){
         if(Language.isRTL()){
@@ -342,5 +350,8 @@ public class PayForRestaurant extends Fragment implements Order_View,GetCities_V
     public void Error() {
         progressBarRegister.setVisibility(View.GONE);
         btn_Pay.setEnabled(true);
+        btn_Share.setEnabled(true);
     }
+
+
 }

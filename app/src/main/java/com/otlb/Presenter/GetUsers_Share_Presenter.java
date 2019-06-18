@@ -2,6 +2,7 @@ package com.otlb.Presenter;
 
 import android.content.Context;
 
+import com.otlb.Model.GetUsersShare_Response;
 import com.otlb.Model.Restaurants_Response;
 import com.otlb.Model.TokenResponse;
 import com.otlb.Retrofit.ApiCLint;
@@ -24,19 +25,18 @@ public class GetUsers_Share_Presenter {
         this.getUsers_share_view = getCities_view;
 
     }
-    public void UpdateToken(String token,String user) {
+    public void GetUsersShare(String user) {
         Map<String, String> queryMap = new HashMap<>();
-        queryMap.put("token_app", token);
         Apiinterface apiInterface = ApiCLint.getClient().create(Apiinterface.class);
 
-        Call<TokenResponse> call = apiInterface.UpDateToken(queryMap,"Bearer "+user);
-        call.enqueue(new Callback<TokenResponse>() {
+        Call<GetUsersShare_Response> call = apiInterface.GetUsersShare("Bearer "+user);
+        call.enqueue(new Callback<GetUsersShare_Response>() {
             @Override
-            public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
+            public void onResponse(Call<GetUsersShare_Response> call, Response<GetUsersShare_Response> response) {
 
                 if (response.code()==200) {
 
-                    getUsers_share_view.Success();
+                    getUsers_share_view.Success(response.body().getData());
 //                        getService.ShowTotalprice(String.valueOf(response.body().getData().getTotalCarts()));
                 }   else if(response.code()==404){
                     getUsers_share_view.Error();
@@ -47,7 +47,7 @@ public class GetUsers_Share_Presenter {
                 }
             }
             @Override
-            public void onFailure(Call<TokenResponse> call, Throwable t) {
+            public void onFailure(Call<GetUsersShare_Response> call, Throwable t) {
                 getUsers_share_view.Error();
             }
         });

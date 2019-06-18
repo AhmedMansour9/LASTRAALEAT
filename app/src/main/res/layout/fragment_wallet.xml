@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/Rela_Wallet"
-    tools:context=".Fragments.Wallet">
+    tools:context="com.otlb.Fragments.Wallet">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

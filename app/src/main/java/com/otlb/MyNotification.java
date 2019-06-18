@@ -86,6 +86,7 @@ public class MyNotification {
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
 
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             makeNotificationChannel("CHANNEL_1", "Example channel", NotificationManager.IMPORTANCE_DEFAULT);
             Notification.Builder mBuilder = new Notification.Builder(mCtx,"CHANNEL_1");
