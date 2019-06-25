@@ -187,7 +187,7 @@ public class Navigation extends AppCompatActivity
     private void BackToHome()
     {
 
-        fr = new Home();
+        fr = new TabsLayout();
         if(fr !=null)
         {
             navigationView.getMenu().getItem(0).setChecked(true);

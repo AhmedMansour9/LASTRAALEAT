@@ -1,6 +1,7 @@
 package com.otlb.Retrofit;
 
 import com.otlb.Model.AddtoCart_Response;
+import com.otlb.Model.AnswerShare_Response;
 import com.otlb.Model.CartResponse;
 import com.otlb.Model.CartUpdate_Response;
 import com.otlb.Model.ChangePassword_Response;
@@ -84,6 +85,16 @@ public interface Apiinterface {
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("auth/getusershare")
     Call<GetUsersShare_Response> GetUsersShare(@Header("Authorization") String auth);
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @POST("auth/getanswar")
+    Call<AnswerShare_Response> AnswerShare(@QueryMap Map<String,String> queryMab, @Header("Authorization") String auth);
+
+
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @POST("auth/getshare")
+    Call<GetUsersShare_Response> GetShare(@Header("Authorization") String auth);
 
 
     @POST("getState")

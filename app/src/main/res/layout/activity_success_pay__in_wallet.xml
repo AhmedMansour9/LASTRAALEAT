@@ -33,24 +33,42 @@
         <!--android:layout_marginTop="?attr/actionBarSize"-->
         <!--android:layout_height="match_parent">-->
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
         android:id="@+id/rela"
-        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="2dp"
         android:background="#ffffff">
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:text="@string/thankyouforusingwallet"
             android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="@string/thankyouforusingwallet"
             android:textColor="#ff7d1e"
-            android:textSize="@dimen/_12sdp"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
 
             />
 
     </RelativeLayout>
+
+    <Button
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_below="@+id/rela"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/bc_btnlogin"
+        android:layout_centerHorizontal="true"
+        android:text="@string/finish"
+        android:textSize="@dimen/_15sdp"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:id="@+id/btn_finish"
+        />
 
         <!--<RelativeLayout-->
             <!--android:layout_width="match_parent"-->
@@ -63,7 +81,7 @@
                 android:text="@string/yourpaymentwassuccess"
                 android:layout_marginTop="@dimen/_60sdp"
                 android:layout_centerHorizontal="true"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_18sdp"
                 android:textColor="#ff7d1e"
                 android:id="@+id/order"
                 />

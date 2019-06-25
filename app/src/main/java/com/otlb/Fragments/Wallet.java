@@ -34,7 +34,7 @@ public class Wallet extends Fragment implements MyWallet_View {
     }
    View view;
     CardView img_addpackge;
-    CardView card_paywithraaleat,card_shareiwthfriend;
+    CardView card_paywithraaleat,card_shareiwthfriend,card_acceptshare;
     MyWallet_Presenter myWallet_presenter;
     TextView T_MyWalltet;
     String userr;
@@ -49,6 +49,7 @@ public class Wallet extends Fragment implements MyWallet_View {
         T_MyWalltet=view.findViewById(R.id.T_MyWalltet);
         card_paywithraaleat=view.findViewById(R.id.card_paywithraaleat);
         card_shareiwthfriend=view.findViewById(R.id.card_shareiwthfriend);
+        card_acceptshare=view.findViewById(R.id.card_acceptshare);
         img_addpackge=view.findViewById(R.id.card_newcoins);
         myWallet_presenter=new MyWallet_Presenter(getContext(),this);
         myWallet_presenter.Login(userr);
@@ -76,6 +77,19 @@ public class Wallet extends Fragment implements MyWallet_View {
                 detailsHomeProductFragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().add(R.id.Rela_Wallet,detailsHomeProductFragment)
                         .addToBackStack(null).commit();
+            }
+        });
+
+        card_acceptshare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AcceptShare detailsHomeProductFragment=new AcceptShare();
+                Bundle bundle=new Bundle();
+                detailsHomeProductFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().add(R.id.Rela_Wallet,detailsHomeProductFragment)
+                        .addToBackStack(null).commit();
+
             }
         });
 

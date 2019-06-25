@@ -5,10 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.otlb.Model.GetUsersShare;
 import com.otlb.Model.MenuDetails;
+import com.otlb.View.AnswerShare_View;
 import com.otlb.View.RestaurantDetails_View;
 import com.raaleat.R;
 
@@ -22,16 +24,19 @@ public class GetAccept_Share_Adapter  extends RecyclerView.Adapter<GetAccept_Sha
     Context con;
     RestaurantDetails_View restaurantDetails_view;
     List<MenuDetails> list=new ArrayList<>();
+    AnswerShare_View answerShare_view;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView Name,Phone,Mony,Replay;
-
+        Button accept,cancel;
         public MyViewHolder(View view) {
             super(view);
             Name=view.findViewById(R.id.name);
             Phone=view.findViewById(R.id.phone);
             Mony=view.findViewById(R.id.money);
-            Replay=view.findViewById(R.id.statues);
+            accept=view.findViewById(R.id.accept);
+            cancel=view.findViewById(R.id.cancel);
+
         }
     }
 
@@ -39,14 +44,13 @@ public class GetAccept_Share_Adapter  extends RecyclerView.Adapter<GetAccept_Sha
         this.filteredList=list;
         this.con=context;
     }
-    public void setClickListener(RestaurantDetails_View restaurantDetails_view) {
-        this.restaurantDetails_view = restaurantDetails_view;
-
+    public void setClickListener(AnswerShare_View answerShare_view) {
+        this.answerShare_view=answerShare_view;
     }
     @Override
     public GetAccept_Share_Adapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.getusersshare, parent, false);
+                .inflate(R.layout.getacceptshare, parent, false);
         return new GetAccept_Share_Adapter.MyViewHolder(itemView);
     }
 
@@ -55,17 +59,23 @@ public class GetAccept_Share_Adapter  extends RecyclerView.Adapter<GetAccept_Sha
         holder.Name.setText(con.getResources().getString(R.string.name)+": "+filteredList.get(position).getFirstName());
         holder.Phone.setText(con.getResources().getString(R.string.phone)+": "+filteredList.get(position).getPhone());
         holder.Mony.setText(con.getResources().getString(R.string.money)+": "+filteredList.get(position).getMoney());
-        if(filteredList.get(position).getAccept().equals("0")) {
-            holder.Replay.setText(con.getResources().getString(R.string.status) + ": " + con.getResources().getString(R.string.noreply));
 
-        }  else if(filteredList.get(position).getAccept().equals("1")) {
-            holder.Replay.setText(con.getResources().getString(R.string.status) + ": " + con.getResources().getString(R.string.accept));
+        holder.accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+             answerShare_view.Answer("1",String.valueOf(filteredList.get(position)));
+            }
+        });
 
-        }
-        else  if(filteredList.get(position).getAccept().equals("2")) {
-            holder.Replay.setText(con.getResources().getString(R.string.status) + ": " + con.getResources().getString(R.string.cancel));
 
-        }
+        holder.cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              answerShare_view.Answer("2",String.valueOf(filteredList.get(position)));
+            }
+        });
+
+
     }
 
     @Override

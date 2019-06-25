@@ -14,13 +14,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.otlb.Activites.Navigation;
+import com.otlb.Adapter.GetAccept_Share_Adapter;
 import com.otlb.Adapter.GetUsers_Share_Adapter;
 import com.otlb.Language;
 import com.otlb.Model.GetUsersShare;
 import com.otlb.Model.MyOrderss;
+import com.otlb.Presenter.AnswerShare_Presenter;
 import com.otlb.Presenter.GetUsers_Share_Presenter;
+import com.otlb.View.AcceptShare_View;
+import com.otlb.View.AnswerShare_View;
 import com.otlb.View.GetUsers_Share_View;
 import com.raaleat.R;
 
@@ -32,7 +37,7 @@ import static android.content.Context.MODE_PRIVATE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AcceptShare extends Fragment implements SwipeRefreshLayout.OnRefreshListener, GetUsers_Share_View {
+public class AcceptShare extends Fragment implements AcceptShare_View,AnswerShare_View,SwipeRefreshLayout.OnRefreshListener, GetUsers_Share_View {
 
 
     public AcceptShare() {
@@ -41,13 +46,13 @@ public class AcceptShare extends Fragment implements SwipeRefreshLayout.OnRefres
     View view;
     SwipeRefreshLayout mSwipeRefreshLayout;
     RecyclerView recyclerView;
-    GetUsers_Share_Adapter restaurants_adapter;
+    GetAccept_Share_Adapter restaurants_adapter;
     GetUsers_Share_Presenter getUsers_share_presenter;
     String Lang;
-    List<MyOrderss> restaurantsList = new ArrayList<>();
+    AnswerShare_Presenter answerShare_presenter;
     SharedPreferences Shared;
     String userr;
-
+    ProgressBar progressconfirm;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,6 +69,8 @@ public class AcceptShare extends Fragment implements SwipeRefreshLayout.OnRefres
     }
 
     public void SwipRefresh(){
+        answerShare_presenter=new AnswerShare_Presenter(getContext(),this);
+        progressconfirm=view.findViewById(R.id.progressconfirm);
         mSwipeRefreshLayout =  view.findViewById(R.id.swipe_Restaurants);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setRefreshing(true);
@@ -75,7 +82,7 @@ public class AcceptShare extends Fragment implements SwipeRefreshLayout.OnRefres
             @Override
             public void run() {
                 mSwipeRefreshLayout.setRefreshing(true);
-                getUsers_share_presenter.GetUsersShare(userr);
+                getUsers_share_presenter.GetShare(userr);
 
             }
         });
@@ -84,7 +91,7 @@ public class AcceptShare extends Fragment implements SwipeRefreshLayout.OnRefres
     @Override
     public void onRefresh() {
         mSwipeRefreshLayout.setRefreshing(true);
-        getUsers_share_presenter.GetUsersShare(userr);
+        getUsers_share_presenter.GetShare(userr);
 
     }
 
@@ -126,21 +133,39 @@ public class AcceptShare extends Fragment implements SwipeRefreshLayout.OnRefres
     @Override
     public void Success(List<GetUsersShare>list) {
         mSwipeRefreshLayout.setRefreshing(false);
-        restaurants_adapter=new GetUsers_Share_Adapter(list,getContext());
-//        restaurants_adapter.setClickListener(this);
+        restaurants_adapter=new GetAccept_Share_Adapter(list,getContext());
+        restaurants_adapter.setClickListener(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(restaurants_adapter);
 
+    }
 
+    @Override
+    public void Success() {
+      mSwipeRefreshLayout.setRefreshing(false);
+      progressconfirm.setVisibility(View.GONE);
+        GetAccept_Share_Adapter.filteredList.clear();
+        restaurants_adapter.notifyDataSetChanged();
 
     }
+
+
 
     @Override
     public void Error() {
         mSwipeRefreshLayout.setRefreshing(false);
+        progressconfirm.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void Answer(String answer,String poistion) {
+        progressconfirm.setVisibility(View.VISIBLE);
+        answerShare_presenter.AnswerShare(answer,userr);
+
+
     }
 }
 

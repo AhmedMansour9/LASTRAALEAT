@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#fff7ea"
+    android:layout_height="@dimen/_160sdp">
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:textColor="#8F8F8F"
+        android:paddingStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textStyle="bold"
+        android:gravity="center_vertical" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/phone"
+        android:textColor="#8F8F8F"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@+id/name"
+        android:textStyle="bold"
+        android:paddingStart="@dimen/_20sdp"
+        android:gravity="center_vertical"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phone"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="#8F8F8F"
+        android:id="@+id/money"
+        android:textStyle="bold"
+        android:paddingStart="@dimen/_20sdp"
+        android:gravity="center_vertical"
+
+        />
+    <Button
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_below="@+id/money"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bc_btnlogin"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:text="@string/accept"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:id="@+id/accept"
+        />
+
+    <Button
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_below="@+id/money"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bc_btnlogin"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:text="@string/cancel"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:id="@+id/cancel"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_alignParentBottom="true"
+        android:background="#DBDBDB"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        />
+
+
+</RelativeLayout>

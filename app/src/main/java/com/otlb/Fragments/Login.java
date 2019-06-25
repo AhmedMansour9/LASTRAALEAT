@@ -36,6 +36,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthCredential;
@@ -44,6 +46,8 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.otlb.Activites.Navigation;
 import com.otlb.Model.UserRegister;
 import com.otlb.Presenter.LoginPresenter;
@@ -342,15 +346,32 @@ public class Login extends Fragment implements LoginView, RegisterFaceView, Regi
     }
 
     @Override
-    public void OpenRole(String usertoken) {
+    public void OpenRole(final String usertoken) {
         progressBar.setVisibility(View.GONE);
         Shared.putString("logggin",usertoken);
         Shared.apply();
-        String token= SharedPrefManager.getInstance(getContext()).getDeviceToken();
-        tokens_presenter.UpdateToken(token,usertoken);
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( getActivity(),
+                new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        String newToken = instanceIdResult.getToken();
+                        Log.e("newToken", newToken);
+                        String token= SharedPrefManager.getInstance(getContext()).getDeviceToken();
+                        tokens_presenter.UpdateToken(newToken,usertoken);
+                        startActivity(new Intent(getContext(), Navigation.class));
+                        getActivity().finish();
 
-        startActivity(new Intent(getContext(), Navigation.class));
-        getActivity().finish();
+
+                    }
+                }).addOnFailureListener(getActivity(), new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                startActivity(new Intent(getContext(), Navigation.class));
+                getActivity().finish();
+
+            }
+        });
+
 
     }
 

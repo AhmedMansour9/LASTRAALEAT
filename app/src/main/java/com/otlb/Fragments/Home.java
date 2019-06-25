@@ -2,14 +2,17 @@ package com.otlb.Fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +23,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.otlb.Activites.Navigation;
 import com.otlb.Language;
 import com.otlb.Model.CartList;
@@ -33,6 +40,9 @@ import com.otlb.Model.TypesFood;
 import com.otlb.Presenter.GetCities_Presenter;
 import com.otlb.Presenter.GetTypes_Presenter;
 import com.otlb.Presenter.ShowCart_Presenter;
+import com.otlb.Presenter.Tokens_Presenter;
+import com.otlb.SharedPrefManager;
+import com.otlb.View.Tokens_View;
 import com.raaleat.R;
 import com.otlb.View.GetCities_View;
 import com.otlb.View.ShowCart_View;
@@ -47,7 +57,7 @@ import static com.otlb.Activites.Navigation.toolbar;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Home extends Fragment implements ShowCart_View,GetCities_View ,SwipeRefreshLayout.OnRefreshListener{
+public class Home extends Fragment implements ShowCart_View, Tokens_View,GetCities_View ,SwipeRefreshLayout.OnRefreshListener{
 
 
     public Home() {
@@ -73,6 +83,7 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View ,Swip
     SharedPreferences Shared;
     ShowCart_Presenter showCart_presenter;
     SwipeRefreshLayout mSwipeRefreshLayout;
+    Tokens_Presenter tokens_presenter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -81,6 +92,7 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View ,Swip
         Navigation();
         Language();
         init();
+        UpdateToken();
         SwipRefresh();
         return view;
     }
@@ -101,6 +113,30 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View ,Swip
 
             }
         });
+    }
+    public  void UpdateToken(){
+        tokens_presenter=new Tokens_Presenter(getContext(),this);
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( getActivity(),
+                new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        String newToken = instanceIdResult.getToken();
+                        Log.e("newToken", newToken);
+                        String token= SharedPrefManager.getInstance(getContext()).getDeviceToken();
+                        tokens_presenter.UpdateToken(newToken,user);
+
+
+                    }
+                }).addOnFailureListener(getActivity(), new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                startActivity(new Intent(getContext(), Navigation.class));
+                getActivity().finish();
+
+            }
+        });
+
+
     }
 
 
@@ -359,6 +395,11 @@ public class Home extends Fragment implements ShowCart_View,GetCities_View ,Swip
 
     @Override
     public void ShowTotalprice(String price) {
+
+    }
+
+    @Override
+    public void success() {
 
     }
 

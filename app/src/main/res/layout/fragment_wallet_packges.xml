@@ -3,11 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bc_splash"
-    tools:context=".Fragments.WalletPackges">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:background="@drawable/bc_splash">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -109,5 +106,4 @@
 
         </RelativeLayout>
 
-    </ScrollView>
 </RelativeLayout>

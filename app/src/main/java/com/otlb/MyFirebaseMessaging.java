@@ -44,7 +44,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
     private void sendPushNotification(JSONObject json) {
         mNotificationManager = new MyNotification(getApplicationContext());
         intent = new Intent(getApplicationContext(), Navigation.class);
-
+        intent.putExtra("notification","notification");
         Log.e(TAG, "Notification JSON " + json.toString());
         try {
 //            JSONObject data = json.getJSONObject("data");

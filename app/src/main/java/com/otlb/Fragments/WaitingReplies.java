@@ -175,6 +175,7 @@ public class WaitingReplies extends Fragment implements ConFirmPay_View,SwipeRef
 
     }
 
+
     @Override
     public void Error() {
         mSwipeRefreshLayout.setRefreshing(false);

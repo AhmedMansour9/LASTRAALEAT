@@ -148,6 +148,6 @@
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="waitingresponse">Waiting For Your Friends Response</string>
     <string name="confirm">ConFirm</string>
-    <string name="thankyouforusingwallet">Thank You For Using Wallet Share</string>
+    <string name="thankyouforusingwallet">Thank You For Using Raaleat Wallet Share</string>
     <string name="yourpaymentwassuccess">Your PayMent Was Successful</string>
 </resources>

@@ -2,6 +2,7 @@ package com.otlb.Presenter;
 
 import android.content.Context;
 
+import com.otlb.Model.GetUsersShare;
 import com.otlb.Model.GetUsersShare_Response;
 import com.otlb.Model.Restaurants_Response;
 import com.otlb.Model.TokenResponse;
@@ -11,6 +12,7 @@ import com.otlb.View.GetUsers_Share_View;
 import com.otlb.View.Restaurants_View;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -36,7 +38,36 @@ public class GetUsers_Share_Presenter {
 
                 if (response.code()==200) {
 
-                    getUsers_share_view.Success(response.body().getData());
+                    getUsers_share_view.Success((List<GetUsersShare>) response.body().getData());
+//                        getService.ShowTotalprice(String.valueOf(response.body().getData().getTotalCarts()));
+                }   else if(response.code()==404){
+                    getUsers_share_view.Error();
+
+                }
+                else {
+                    getUsers_share_view.Error();
+                }
+            }
+            @Override
+            public void onFailure(Call<GetUsersShare_Response> call, Throwable t) {
+                getUsers_share_view.Error();
+            }
+        });
+    }
+
+
+    public void GetShare(String user) {
+        Map<String, String> queryMap = new HashMap<>();
+        Apiinterface apiInterface = ApiCLint.getClient().create(Apiinterface.class);
+
+        Call<GetUsersShare_Response> call = apiInterface.GetShare("Bearer "+user);
+        call.enqueue(new Callback<GetUsersShare_Response>() {
+            @Override
+            public void onResponse(Call<GetUsersShare_Response> call, Response<GetUsersShare_Response> response) {
+
+                if (response.code()==200) {
+
+                    getUsers_share_view.Success((List<GetUsersShare>) response.body().getData());
 //                        getService.ShowTotalprice(String.valueOf(response.body().getData().getTotalCarts()));
                 }   else if(response.code()==404){
                     getUsers_share_view.Error();

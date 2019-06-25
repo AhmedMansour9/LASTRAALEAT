@@ -12,7 +12,7 @@ public class GetUsersShare_Response {
     private Boolean status;
     @SerializedName("data")
     @Expose
-    private List<GetUsersShare> data = null;
+    private GetUsersShare data = null;
 
     public Boolean getStatus() {
         return status;
@@ -22,11 +22,11 @@ public class GetUsersShare_Response {
         this.status = status;
     }
 
-    public List<GetUsersShare> getData() {
+    public GetUsersShare getData() {
         return data;
     }
 
-    public void setData(List<GetUsersShare> data) {
+    public void setData(GetUsersShare data) {
         this.data = data;
     }
 }
